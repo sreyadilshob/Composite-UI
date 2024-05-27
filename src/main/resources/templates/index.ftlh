@@ -6,8 +6,9 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  	
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   	<style>
 	    body {
 	      background-image: url('background.jpg'); /* Scenic background image */
@@ -54,106 +55,90 @@
   
   
   <body>
-  <div class="container">
+  <div class="container-fluid">
   
-   <h1 class="main-heading">Recommendations</h1>
-    
-		<#list recommendations as recom>
-		<div class="row" id="divitem">
-	      <div class="col-md-12">
-	      
-	        <div class="item" id="heading${recom?counter}">
-		        <button class="btn btn-link" data-toggle="collapse" data-target='#collapse${recom?counter}' aria-expanded="true" aria-controls="collapse">
-		          ${recom.stock.name!} - ${recom.stock.symbol!}
-		        </button>
-
-	        	<div class="col-md-12">
-			        <table width="100%">
-				        <tr>
-				        	<td><h4>${recom?counter}</h4></td>
-						    <td><h4>${recom.stock.symbol!}</h4></td>
-						    <td><h4>${recom.callType!}</h4></td>
-						    <td><h4>${recom.startDate?datetime?string("dd-MM-yyyy")}</h4></td>
-						    <td><h4>${recom.startPrice!}</h4></td>
-						    <td><h4>${recom.targetDate?datetime?string("dd-MM-yyyy")}</h4></td>
-						    <td><h4>${recom.targetPrice!}</h4></td>
-						    <td><h4>${recom.stopLossPrice!}</h4></td>
-						    <td><h4>${recom.channel!}</h4></td>
-						    <td><h4>${recom.status!}</h4></td>
-						    <td><h4>${recom.returnPercentage!}</h4></td>
-						    <td><h4>${recom.completed?then('YES', 'NO')}</h4></td>
-				        <tr>
-			        </table>
-	        	</div>
-	          
-	          <div id='collapse${recom?counter}' class="collapse" aria-labelledby='heading${recom?counter}' data-parent="#divitem">
-			      <div class="card-body">
-			      		<div class="row">
-				            <div class="col-md-4">
-				              <table class="table">
-				                <tbody>
-				                  <tr>
-				                    <td>Revenue</td>
-				                    <td>3424234</td>
-				                  </tr>
-				                  <tr>
-				                    <td>Profit</td>
-				                    <td>334343343</td>
-				                  </tr>
-				                  <tr>
-				                    <td>Profit</td>
-				                    <td>334343343</td>
-				                  </tr>
-				                  <tr>
-				                    <td>Profit</td>
-				                    <td>334343343</td>
-				                  </tr>
-				                </tbody>
-				              </table>
-				            </div>
-				            <div class="col-md-8">
-				              <table class="table">
-				              	<thead>
-				                  <tr>
-				                    <th>Date</th>
-				                    <th>Open</th>
-				                    <th>High</th>
-				                    <th>Low</th>
-				                    <th>Close</th>
-				                    <th>Volume</th>
-				                  </tr>
-				                </thead>				
-				                <tbody>
-				                  <tr>
-				                    <td>10-03-2024</td>
-				                    <td>1221</td>
-				                    <td>1221</td>
-				                    <td>1221</td>
-				                    <td>1221</td>
-				                    <td>343252</td>
-				                  </tr>
-				                  <tr>
-				                    <td>10-03-2024</td>
-				                    <td>1221</td>
-				                    <td>1221</td>
-				                    <td>1221</td>
-				                    <td>1221</td>
-				                    <td>343252</td>
-				                  </tr>
-				                </tbody>
-				              </table>
-				            </div>
-				          </div>
-			      </div>
-			    </div>
-	          
-	          
-	          
+   	<h1 class="main-heading">Recommendations</h1>
+    <div class="row" id="divitem">
+      
+      <div class="col-2">
+      		<div class="card item" style="height:630px">
+      		dd
+      		dfd
+      		dfd
+      		</div>
+      </div>
+      <div class="col-10">
+    	
+	    	<div class="card item" id="labels" style="font-size: 15px;color:white;">
+				<div class="row" style="">
+		        	<div class="col-1" style="width:40px">No</div>
+				    <div class="col-1">Symbol</div>
+				    <div class="col-1">Call</div>
+				    <div class="col-1">Start Date</div>
+				    <div class="col-1">Target Date</div>
+				    <div class="col-1">SL Price</div>
+				    <div class="col-1">Start Price</div>
+				    <div class="col-1">Target Price</div>
+				    <div class="col-1">Channel</div>
+				    <div class="col-1">Status</div>
+				    <div class="col-1">Return %</div>
+				    <div class="col-1">Completed?</div>
+				</div>
 	        </div>
-	       
-	      </div>
-	    </div>
-		</#list>
+	        <div style="height: 530px;overflow: auto;">
+				<#list recommendations as recom>
+		        <div class="card item" style="position:relative; color:white;">
+		        	<div class="card-header" id="heading${recom?counter}"  style="position:absolute;right:0;top:-30px">
+				        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse${recom?counter}" aria-expanded="true" aria-controls="collapse${recom?counter}">
+				          <img src="expand.png" style="width: 40px;"/>
+				        </button>
+			        </div>
+					<div class="row">
+			        	<div class="col-1" style="width:40px">${recom?counter}</div>
+					    <div class="col-1">${recom.stock.symbol!}</div>
+					    <div class="col-1">${recom.callType!}</div>
+					    <div class="col-1">${recom.startDate?datetime?string("dd-MM-yyyy")}</div>
+					    <div class="col-1">${recom.targetDate?datetime?string("dd-MM-yyyy")}</div>
+					    <div class="col-1">${recom.stopLossPrice!}</div>
+					    <div class="col-1">${recom.startPrice!}</div>
+					    <div class="col-1">${recom.targetPrice!}</div>
+					    <div class="col-1" style="width: 140px;">${recom.channel!}</div>
+					    <div class="col-1">${recom.status!}</div>
+					    <div class="col-1">${recom.returnPercentage!}</div>
+					    <div class="col-1">${recom.completed?then('YES', 'NO')}</div>
+					</div>
+			       <div id="collapse${recom?counter}" class="collapse" aria-labelledby="heading${recom?counter}" data-parent="#divitem">
+					      <div class="card-body">
+					      		<div class="row">
+						            <div class="col-md-4">
+						              <table class="table">
+						                <tbody>
+						                
+						                  <tr><td>Stock Name</td><td>${recom.stock.name!}</td></tr>
+						                  <tr><td>Symbol</td><td>${recom.stock.symbol!}</td></tr>
+						                  <tr><td>Description</td><td>${recom.stock.description!}</td></tr>
+						                  <tr><td>Catagory</td><td>Large CAP</td></tr>
+						                </tbody>
+						              </table>
+						            </div>
+						            <div class="col-md-8">
+						              <table class="table">
+						              	<thead><tr><th>Date</th><th>Low</th><th>Open</th><th>Close</th><th>High</th><th>Volume</th></tr></thead>				
+						                <tbody>
+						                	<#list recom.stock.stockPrices as price>
+						                	<tr><td>${price.date!}</td><td>${price.low!}</td><td>${price.open!}</td><td>${price.close!}</td><td>${price.high!}</td><td>${price.volume!}</td></tr>
+						                	</#list>
+						                </tbody>
+						              </table>
+						            </div>
+						       </div>
+					      </div>
+					</div>
+		         </div>
+			     </#list>
+			  </div>
+		  </div>
+	  </div>
 		
 		
 		
